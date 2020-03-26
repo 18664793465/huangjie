@@ -6,68 +6,82 @@
       <span class="iconfont iconnew"></span>
     </div>
     <div class="user">
-      <input type="text" placeholder="用户名/手机号码" />
-      <br />
-      <input type="password" placeholder="密码" />
+      <div>
+        <input type="text" placeholder="用户名/手机号码"  v-model="from.uersname"/>
+      </div>
+
+      <div>
+        <input type="password" placeholder="密码" v-model="from.password" />
+      </div>
+      <div class="register" @click="handclick">登录</div>
     </div>
-    <div class="register">登录</div>
-    <div class="bottoms"></div>
+
+    
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+data(){
+  return {
+    from:{
+      uersname:'',
+      password:''
+    }
+  }
+ 
+},
+
+ methods:{
+    handclick(){
+      this.$axios({
+        url:'http://127.0.0.1:3000/login',
+        method:'post',
+        data:this.from
+      }).then(res=>{
+        console.log(res);
+      
+        
+      })
+      
+    }
+  }
+};
 </script>
 
-<style>
+<style lang='less'>
 .w {
-  width: 360px;
-  height: 620px;
+  padding: 20/360 * 100vw;
   background: #f2f2f2;
 }
-.nav-top {
-  height: 25px;
-  background: #757575;
+.close{
+  font-size: 28/360*100vw;
 }
-.close {
-  display: block;
-  font-size: 28px;
-  margin: 20px;
-}
-.login-new {
-  /* margin-top: 20px; */
+.login-new{
   text-align: center;
 }
-.login-new > span {
-  font-size: 120px;
-  font-weight: 500;
-  color: #d81e06;
+.login-new span{
+font-size: 100/360*100vw;
+color: #d04100;
 }
-.user {
+.user input{
+  width: 100%;
+ height: 54/360*100vw;
+ border:0px;
+ border-bottom: 1px solid #757575;
+ outline: none;
+ font-size: 16px;
+ background: #f2f2f2;
+
+}
+.register{
+  width: 100%;
+  height: 44/360*100vw;
+  line-height: 44/360*100vw;
+  background-color: #cc3300;
+  border-radius: 20/360*100vw;
   text-align: center;
-}
-.user input {
-  border: 0px solid;
-  border-bottom: 1px solid #757575;
-  background: #f2f2f2;
-  height: 50px;
-  width: 330px;
-}
-.register {
-  background: #cc3300;
-  width: 320px;
-  height: 50px;
-  margin-top: 50px;
-  margin-left: 20px;
-  text-align: center;
-  line-height: 50px;
-  font-size: 18px;
-  color: #f2f2f2;
-  border-radius: 30px;
-}
-.bottoms {
-  background: #000;
-  height: 45px;
-  margin-top: 200px;
+  color: aliceblue;
+  margin-top:50/360*100vw;
 }
 </style>
