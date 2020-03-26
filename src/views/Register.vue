@@ -9,29 +9,33 @@
       <van-form @submit="onSubmit">
         <van-field
           v-model="from.username"
-          placeholder="用户名"
+          placeholder="用户名/手机号码"
           :rules="[{ required: true, message: '请填写用户名' }]"
+        />
+        <van-field
+          v-model="from.nickname"
+          placeholder="昵称"
+          :rules="[{ required: true, message: '请填写昵称' }]"
         />
         <van-field
           v-model="from.password"
           type="password"
-          placeholder="密码"
+          placeholder="请输入密码"
           :rules="[{ required: true, message: '请填写密码' }]"
         />
         <div style="margin: 0px;">
           <van-button round block type="info" native-type="submit">
-            登录
+            注册
           </van-button>
         </div>
       </van-form>
-      
     </div>
     <!-- <div style="margin: 16px;">
           <van-button round block type="info" native-type="submit">
             注册
           </van-button>
         </div> -->
-        <div class="zuce">暂无账号,点击<a href="/register">去注册</a></div>
+    <div class="zuce">已有账号,点击<a href="/login">去登录</a></div>
   </div>
 </template>
 
@@ -41,16 +45,17 @@ export default {
     return {
       from: {
         uersname: "",
-        password: ""
+        password: "",
+        nickname: ""
       }
     };
   },
 
   methods: {
     onSubmit(values) {
-      console.log('submit', values);
-        this.$axios({
-        url: "/login",
+      console.log("submit", values);
+      this.$axios({
+        url: "/register",
         method: "post",
         data: this.from
       }).then(res => {
@@ -58,11 +63,7 @@ export default {
         const { message } = res.data;
         this.$toast(message);
       });
-    
-  },
-  hansclick(){
-    this.$router.push('/register')
-  }
+    }
   }
 };
 </script>
@@ -82,9 +83,9 @@ export default {
   font-size: 100/360 * 100vw;
   color: #d04100;
 }
-.user .van-cell{
-  padding:10px 0 ;
-  border-bottom: 1px solid #333;
+.user .van-cell {
+  padding: 10px 0;
+  border-bottom: 1px solid #c1c1c1;
   background: #f2f2f2;
 }
 .register {
@@ -97,19 +98,19 @@ export default {
   color: aliceblue;
   margin-top: 50/360 * 100vw;
 }
-.user .van-button--info{
+.user .van-button--info {
   background: #d04100;
   border: 1px solid #d04100;
   font-size: 16px;
-  margin-top:30px
+  margin-top: 30px;
 }
-.zuce{
+.zuce {
   font-size: 12px;
   text-align: right;
   margin-top: 10px;
 }
-.zuce a{
-color: #2295c6;
-text-decoration: underline;
+.zuce a {
+  color: #2295c6;
+  text-decoration: underline;
 }
 </style>

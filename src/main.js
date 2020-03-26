@@ -7,7 +7,7 @@ import router from './router'
 import Vant from 'vant'
 import axios from "axios";
 Vue.prototype.$axios = axios;
-// axios.defaults.baseURL = "http://localhost:3000"
+axios.defaults.baseURL = "http://localhost:3000"
 Vue.use(Vant);
 //上线环境是否提示信息
 Vue.config.productionTip = false
