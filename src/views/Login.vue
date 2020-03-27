@@ -55,8 +55,10 @@ export default {
         data: this.from
       }).then(res => {
         console.log(res);
-        const { message } = res.data;
+        const { message,data } = res.data;
         this.$toast(message);
+        localStorage.setItem('uesr',JSON.stringify(data))
+        this.$router.push('/personal')
       });
     
   },
@@ -67,7 +69,7 @@ export default {
 };
 </script>
 
-<style lang="less">
+<style  scoped lang="less">
 .w {
   padding: 20/360 * 100vw;
   background: #f2f2f2;

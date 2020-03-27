@@ -68,7 +68,7 @@ export default {
 };
 </script>
 
-<style lang="less">
+<style  scoped lang="less">
 .w {
   padding: 20/360 * 100vw;
   background: #f2f2f2;
