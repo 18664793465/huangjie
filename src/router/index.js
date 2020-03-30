@@ -19,7 +19,21 @@ const routes = [
   {
     path: "/editprofile",
     component: () => import("@/views/EditProfile")
+  },
+  {
+    path: "/myconcern",
+    component: () => import("@/views/Myconcern")
+  },
+  {
+    path: "/mycomments",
+    component: () => import("@/views/Mycomments")
+  },
+  {
+    path: "/myfavorite",
+    component: () => import("@/views/Myfavorite")
   }
+
+
 ];
 
 const router = new VueRouter({

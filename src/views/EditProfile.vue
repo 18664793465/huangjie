@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- 头部导航条 -->
-    <navigateBar title="编辑资料" show="false"></navigateBar>
+    <navigateBar title="编辑资料" :show='false'></navigateBar>
     <!-- ‘用户头像部分 -->
     <div class="user-img">
       <img :src="$axios.defaults.baseURL+userData.head_img" alt />

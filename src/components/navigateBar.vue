@@ -3,7 +3,7 @@
       <span class="iconfont iconjiantou"  @click="$router.back()"></span>
       <span>{{title}}</span>
       <span class="iconfont iconshouye" v-if="show" @click="$router.push('/')"></span>
-      
+      <span v-else="" class="iconfont iconshouye" style="opacity: 0"></span>
     </div>
 </template>
 
