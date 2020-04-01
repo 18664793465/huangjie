@@ -23,7 +23,7 @@
       </div>
     </router-link>
     <!-- 按钮组件部分 -->
-    <listbar v-for="(item, index) in rows" :label="item.label" :tips="item.tips" :key="index"></listbar>
+    <listbar v-for="(item, index) in rows" :label="item.label" :tips="item.tips"  :path='item.path' :key="index" @click.native='$router.push(item.path)'></listbar>
     <listbar label="退出" @click.native="hideclick"></listbar>
   </div>
 </template>
@@ -37,9 +37,9 @@ export default {
   data() {
     return {
       rows: [
-        { label: "我的关注", tips: "关注的用户" },
-        { label: "我的跟帖", tips: "跟帖的回复" },
-        { label: "我的收藏", tips: "文章视频" }
+        { label: "我的关注", tips: "关注的用户" ,path:'/Myconcern'},
+        { label: "我的跟帖", tips: "跟帖的回复" ,path:'/Mycomments'},
+        { label: "我的收藏", tips: "文章视频" ,path:'/Myfavorite'}
       ],
       uersInfo: {},
       moment

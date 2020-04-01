@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  props:['label','tips','hideclick'],
+  props:['label','tips','hideclick','path'],
   methods:{
    
   }

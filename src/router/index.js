@@ -5,6 +5,10 @@ Vue.use(VueRouter);
 
 const routes = [
   {
+    path: "/index",
+    component: () => import("@/views/Index")
+  },
+  {
     path: "/login",
     component: () => import("@/views/Login")
   },
@@ -14,7 +18,10 @@ const routes = [
   },
   {
     path: "/personal",
-    component: () => import("@/views/Personal")
+    component: () => import("@/views/Personal"),
+    meta: {
+      authorization: true
+    }
   },
   {
     path: "/editprofile",
@@ -22,18 +29,25 @@ const routes = [
   },
   {
     path: "/myconcern",
-    component: () => import("@/views/Myconcern")
+    component: () => import("@/views/Myconcern"),
+    meta: {
+      authorization: true
+    }
   },
   {
     path: "/mycomments",
-    component: () => import("@/views/Mycomments")
+    component: () => import("@/views/Mycomments"),
+    meta: {
+      authorization: true
+    }
   },
   {
     path: "/myfavorite",
-    component: () => import("@/views/Myfavorite")
+    component: () => import("@/views/Myfavorite"),
+    meta: {
+      authorization: true
+    }
   }
-
-
 ];
 
 const router = new VueRouter({

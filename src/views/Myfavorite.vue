@@ -15,20 +15,36 @@
         <img src="//www.baidu.com/img/bd_logo1.png?where=super" alt />
       </div>
     </div>
+
     <div>
       <div class="t1">
-        <div >
+        <div>
           林志玲穿透视黑纱裙米兰看秀
           腹部微隆显孕味
         </div>
-          <div class="t2">
-        <img src="//www.baidu.com/img/bd_logo1.png?where=super" alt='' />
-        <img src="//www.baidu.com/img/bd_logo1.png?where=super" alt />
-        <img src="//www.baidu.com/img/bd_logo1.png?where=super" alt />
-      </div>
+        <div class="t2">
+          <img src="//www.baidu.com/img/bd_logo1.png?where=super" alt />
+          <img src="//www.baidu.com/img/bd_logo1.png?where=super" alt />
+          <img src="//www.baidu.com/img/bd_logo1.png?where=super" alt />
+        </div>
         <div class="t3">火星时报 52跟帖</div>
       </div>
-    
+    </div>
+
+    <div>
+      <div class="ps">
+        <div class="p1">
+          林志玲穿透视黑纱裙米兰看秀
+          腹部微隆显孕味
+        </div>
+        <div class="p2">
+          <img
+            src="//img30.360buyimg.com/da/s590x470_jfs/t1/90286/21/16835/77679/5e814af6E114ef007/4fab69f75bec9121.jpg"
+            alt
+          />
+        </div>
+        <div class="p3">火星时报 52跟帖</div>
+      </div>
     </div>
   </div>
 </template>
@@ -36,28 +52,26 @@
 <script>
 import navigateBar from "@/components/navigateBar";
 export default {
-  data(){
-    return{
-      userInfo:[]
-    }
+  data() {
+    return {
+      userInfo: []
+    };
   },
   components: {
     navigateBar
   },
-  mounted(){
-     const userInfo=JSON.parse(localStorage.getItem("uesr"))
-    this.userInfo=userInfo
+  mounted() {
+    const userInfo = JSON.parse(localStorage.getItem("uesr"));
+    this.userInfo = userInfo;
     this.$axios({
       url: "/user_star",
       headers: {
         Authorization: userInfo.token
       }
-    }).then(res=>{
+    }).then(res => {
       console.log(res);
-      const { data} = res.data
+      const { data } = res.data;
       console.log(data);
-      
-      
     });
   }
 };
@@ -67,7 +81,7 @@ export default {
 .myfavoite {
   display: flex;
   padding: 15/360 * 100vw;
-  border-bottom: 1px solid #888;
+  border-bottom: 1px solid #eee;
   // justify-content: space-between;
   .fontszi {
     margin-bottom: 15/360 * 100vw;
@@ -84,22 +98,40 @@ export default {
     }
   }
 }
-.t1{
+.t1 {
   padding: 15/360 * 100vw;
-  border-bottom: 1px solid #888;
-.t2{
-  display: flex;
-  // align-items: center;
-  justify-content: space-between;
-  img{
-   width: 33%;
+  border-bottom: 1px solid #eee;
+  .t2 {
+    display: flex;
+    // align-items: center;
+    justify-content: space-between;
+    img {
+      width: 33%;
       height: 75/360 * 100vw;
       object-fit: cover;
+    }
+  }
+  .t3 {
+    color: #999;
   }
 }
-.t3{
-  color: #999;
+.ps {
+  padding: 15/360 * 100vw;
+  border-bottom: 1px solid #eee;
+  .p1 {
+    
+  }
+  .p2 {
+    margin: 15/360 * 100vw 0;
+    img {
+      width: 100%;
+      height: 150/360 * 100vw;
+      object-fit: cover;
+    }
+    
+  }
+  .p3{
+      color: #999;
+    }
 }
-}
-
 </style>
