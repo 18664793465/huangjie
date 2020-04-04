@@ -42,6 +42,9 @@
             src="//img30.360buyimg.com/da/s590x470_jfs/t1/90286/21/16835/77679/5e814af6E114ef007/4fab69f75bec9121.jpg"
             alt
           />
+          <div class="p21">
+            <span >></span>
+          </div>
         </div>
         <div class="p3">火星时报 52跟帖</div>
       </div>
@@ -123,12 +126,33 @@ export default {
   }
   .p2 {
     margin: 15/360 * 100vw 0;
+    position: relative;
+   
+    
     img {
+      
       width: 100%;
       height: 150/360 * 100vw;
       object-fit: cover;
     }
-    
+    .p21{
+    width: 60/360*100vw;
+    background: rgb(158, 157, 157);
+    opacity: 0.3;
+    height: 60/360*100vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+     text-align: center;
+     line-height: 60/360*100vw;
+     border-radius: 50%;
+    transform: translateX(-30/360*100vw) translateY(-30/360*100vw);
+    span {
+      font-size: 30px;
+      font-weight: 700;
+      color: red
+    }
+    }
   }
   .p3{
       color: #999;

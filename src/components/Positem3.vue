@@ -2,22 +2,26 @@
   <div>
     <div class="ps">
       <div class="p1">
-        林志玲穿透视黑纱裙米兰看秀
-        腹部微隆显孕味
+        {{data.title}}
       </div>
       <div class="p2">
         <img
-          src="//img30.360buyimg.com/da/s590x470_jfs/t1/90286/21/16835/77679/5e814af6E114ef007/4fab69f75bec9121.jpg"
+          :src="$axios.defaults.baseURL + data.cover[0].url"
           alt
         />
+         <div class="p21">
+            <span >></span>
+          </div>
       </div>
-      <div class="p3">火星时报 52跟帖</div>
+      <div class="p3">{{data.user.nickname}} {{data.comment_length}}跟帖</div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+   props:['data']
+};
 </script>
 
 <style scoped lang='less'>
@@ -28,10 +32,32 @@ export default {};
   }
   .p2 {
     margin: 15/360 * 100vw 0;
+    position: relative;
+   
+    
     img {
+      
       width: 100%;
       height: 150/360 * 100vw;
       object-fit: cover;
+    }
+    .p21{
+    width: 60/360*100vw;
+    background: rgb(158, 157, 157);
+    opacity: 0.3;
+    height: 60/360*100vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+     text-align: center;
+     line-height: 60/360*100vw;
+     border-radius: 50%;
+    transform: translateX(-30/360*100vw) translateY(-30/360*100vw);
+    span {
+      font-size: 30px;
+      font-weight: 700;
+      color: red
+    }
     }
   }
   .p3 {

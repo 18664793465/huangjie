@@ -2,21 +2,21 @@
   <div>
     <div class="t1">
       <div>
-        林志玲穿透视黑纱裙米兰看秀
-        腹部微隆显孕味
+        {{data.title}}
       </div>
-      <div class="t2">
-        <img src="//www.baidu.com/img/bd_logo1.png?where=super" alt />
-        <img src="//www.baidu.com/img/bd_logo1.png?where=super" alt />
-        <img src="//www.baidu.com/img/bd_logo1.png?where=super" alt />
+      <div class="t2" >
+        <img v-for="(item,index) in data.cover" :key='index' :src="$axios.defaults.baseURL + item.url" alt />
+        
       </div>
-      <div class="t3">火星时报 52跟帖</div>
+      <div class="t3">{{data.user.nickname}} {{data.comment_length}}跟帖</div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props:['data']
+};
 </script>
 
 <style scoped lang='less'>
@@ -26,8 +26,10 @@ export default {};
   .t2 {
     display: flex;
     // align-items: center;
+    
     justify-content: space-between;
     img {
+      
       width: 33%;
       height: 75/360 * 100vw;
       object-fit: cover;

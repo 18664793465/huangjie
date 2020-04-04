@@ -2,20 +2,20 @@
    <div class="myfavoite">
       <div>
         <div class="fontszi">
-          林志玲穿透视黑纱裙米兰看秀
-          腹部微隆显孕味
+          {{data.title}}
         </div>
-        <div class="mycolor">火星时报 52跟帖</div>
+        <div class="mycolor">{{data.user.nickname}} {{data.comment_length}}跟帖</div>
       </div>
 
       <div class="myfavoite-img">
-        <img src="//www.baidu.com/img/bd_logo1.png?where=super" alt />
+        <img :src="$axios.defaults.baseURL + data.cover[0].url" alt />
       </div>
     </div>
 </template>
 
 <script>
 export default {
+  props:['data']
 
 }
 </script>
