@@ -5,7 +5,7 @@
       <div class="login">
         <span class="iconfont iconnew"></span>
       </div>
-      <router-link to="#" class="search">
+      <router-link to="/search" class="search">
         <span class="iconfont iconsearch"></span>
         <i>搜索新闻</i>
       </router-link>
@@ -56,12 +56,12 @@ export default {
   watch: {
     active() {
       if (this.active === this.categiorys.length - 1) {
-        this.$router.push("/xinqingye");
+        this.$router.push("/management");
       }
       this.getList();
-     setTimeout(()=>{
-        window.scrollTo(0,this.categiorys[this.active].scroolY)
-     },10)
+      setTimeout(() => {
+        window.scrollTo(0, this.categiorys[this.active].scroolY);
+      }, 10);
     }
   },
   mounted() {
@@ -92,6 +92,7 @@ export default {
         v.loading = false;
         v.finished = false;
         v.scroolY = 0;
+        v.isload = false;
         return v;
       });
     },
@@ -117,8 +118,13 @@ export default {
       //新闻列表的的数据请求方法的封装
     },
     getList() {
-      const { id, pageIndex, finished, name } = this.categiorys[this.active];
-      if (finished || !id) return;
+      const { id, pageIndex, finished, name, isload } = this.categiorys[
+        this.active
+      ];
+      if (isload) return;
+      this.categiorys[this.active].isload = true;
+      this.categiorys[this.active].pageIndex += 1;
+      if (finished) return;
       const config = {
         url: "/post",
         params: {
@@ -143,17 +149,17 @@ export default {
         if (this.categiorys[this.active].list.length === total) {
           this.categiorys[this.active].finished = true;
         }
+        this.categiorys[this.active].isload = false;
       });
     },
     onLoad() {
       // 异步更新数据
-      this.categiorys[this.active].pageIndex += 1;
+
       this.getList();
     },
     handelScroll({ scrollTop }) {
       if (this.categiorys.length == 0) return;
       this.categiorys[this.active].scroolY = scrollTop;
-     
     },
     onRefresh() {
       if (this.categiorys[this.active].finished) return;

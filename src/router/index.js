@@ -47,6 +47,14 @@ const routes = [
     meta: {
       authorization: true
     }
+  },
+  {
+    path: "/search",
+    component: () => import("@/views/Search")
+  },
+  {
+    path: "/management",
+    component: () => import("@/views/Management")
   }
 ];
 

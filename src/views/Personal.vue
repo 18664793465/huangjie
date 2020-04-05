@@ -1,6 +1,6 @@
 <template>
   <div>
-  <navigateBar title="个人中心" :show='turn'> </navigateBar>
+  <navigateBar title="个人中心" :show='1'> </navigateBar>
     <router-link to="/editprofile">
       <div class="headtop">
         <!-- 头像部分 -->
