@@ -1,5 +1,6 @@
 <template>
-   <div class="myfavoite">
+  <router-link :to="`/news_detail/{{data.id}}`">
+     <div class="myfavoite">
       <div>
         <div class="fontszi">
           {{data.title}}
@@ -11,6 +12,7 @@
         <img :src="$axios.defaults.baseURL + data.cover[0].url" alt />
       </div>
     </div>
+  </router-link>
 </template>
 
 <script>

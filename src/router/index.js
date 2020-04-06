@@ -55,6 +55,10 @@ const routes = [
   {
     path: "/management",
     component: () => import("@/views/Management")
+  },
+  {
+    path: "/news_detail/:id",
+    component: () => import("@/views/News_detail")
   }
 ];
 

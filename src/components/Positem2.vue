@@ -1,4 +1,5 @@
 <template>
+<router-link :to="`/news_detail/{{data.id}}`">
   <div>
     <div class="t1">
       <div>
@@ -11,6 +12,7 @@
       <div class="t3">{{data.user.nickname}} {{data.comment_length}}跟帖</div>
     </div>
   </div>
+</router-link>
 </template>
 
 <script>
