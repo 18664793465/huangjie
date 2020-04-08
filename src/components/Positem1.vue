@@ -1,9 +1,10 @@
 <template>
-  <router-link :to="`/news_detail/{{data.id}}`">
+  <router-link :to="`/news_detail/${data.id}`">
      <div class="myfavoite">
       <div>
         <div class="fontszi">
           {{data.title}}
+          
         </div>
         <div class="mycolor">{{data.user.nickname}} {{data.comment_length}}跟帖</div>
       </div>

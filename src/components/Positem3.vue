@@ -1,5 +1,5 @@
 <template>
-<router-link :to="`/news_detail/{{data.id}}`">
+<router-link :to="`/news_detail/${data.id}`">
   <div>
     <div class="ps">
       <div class="p1">

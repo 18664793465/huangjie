@@ -41,7 +41,9 @@ import positem1 from "@/components/Positem1";
 import positem2 from "@/components/Positem2";
 import positem3 from "@/components/Positem3";
 export default {
+  name:'index',
   data() {
+    
     return {
       categiorys: [],
       active: 0,

@@ -58,7 +58,8 @@ export default {
         const { message,data } = res.data;
         this.$toast(message);
         localStorage.setItem('uesr',JSON.stringify(data))
-        this.$router.push('/personal')
+        const { return_url} = this.$route.query
+        this.$router.push(return_url||'/personal')
       });
     
   },
