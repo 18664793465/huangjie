@@ -36,7 +36,7 @@
     <div class="sktone">
       <div class="follow-up">
         <div class="txts-input">
-          <input type="text" class="shk" placeholder="写跟帖" />
+         <router-link :to="`/post-concents/${post.id}`"> <input type="text" class="shk" placeholder="写跟帖" /></router-link>
         </div>
         <span class="iconfont iconpinglun-"></span>
         <span class="iconfont iconshoucang" @click="handleStar" :class="post.has_star?'actver':''"></span>
@@ -50,6 +50,7 @@
 <script>
 import moment from "moment";
 export default {
+  
   data() {
     return {
       post: {

@@ -59,6 +59,10 @@ const routes = [
   {
     path: "/news_detail/:id",
     component: () => import("@/views/News_detail")
+  },
+  {
+    path: "/post-concents/:id",
+    component: () => import("@/views/Post-concents")
   }
 ];
 

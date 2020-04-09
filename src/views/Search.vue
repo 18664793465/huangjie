@@ -100,7 +100,16 @@ export default {
         this.a = true;
       });
     }
-  }
+  },
+  beforeRouteEnter (to, from, next) {
+  next(vm => {
+    if(from.path==='/'){
+      vm.value=[]
+      vm.a=false
+    }
+    next()
+  })
+}
 };
 </script>
 
